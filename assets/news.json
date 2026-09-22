@@ -1,0 +1,30 @@
+[
+  {
+    "date": "Jul 2026",
+    "text": "Two papers presented at <a href=\"https://doi.org/10.1145/3805712.3808569\">SIGIR 2026</a>: a reproducibility study on document position and context size in RAG, and <a href=\"https://doi.org/10.1145/3805712.3808618\">Beyond Top-e</a>, on simulation-based evaluation for query suggestions."
+  },
+  {
+    "date": "May 2026",
+    "text": "Our framework for keyphrase generation and filtering with T5 appeared in the <a href=\"https://doi.org/10.1007/s44196-026-01379-9\">International Journal of Computational Intelligence Systems</a>."
+  },
+  {
+    "date": "Mar 2026",
+    "text": "<a href=\"https://doi.org/10.1016/j.ipm.2025.104480\">Beyond questions: Leveraging ColBERT for keyphrase search</a> published in <em>Information Processing &amp; Management</em>, with Javier Parapar and Craig Macdonald."
+  },
+  {
+    "date": "Nov 2025",
+    "text": "New preprint: <a href=\"https://arxiv.org/abs/2511.07296\">Who Is the Story About? Protagonist Entity Recognition in News</a>."
+  },
+  {
+    "date": "Sep 2025",
+    "text": "Started as associate professor at the Universidade da Coru&ntilde;a."
+  },
+  {
+    "date": "2025",
+    "text": "Defended my PhD, <a href=\"https://hdl.handle.net/2183/46116\">Improving the Search Experience on Complex Search Scenarios</a>, <em>cum laude</em>."
+  },
+  {
+    "date": "2024",
+    "text": "Three-month research visit to the <a href=\"https://terrierteam.dcs.gla.ac.uk/\">Terrier Group</a> at the University of Glasgow, hosted by Craig Macdonald."
+  }
+]
