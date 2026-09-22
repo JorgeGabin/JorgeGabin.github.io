@@ -179,13 +179,34 @@ footer{
 .pub .authors{margin:0;font-size:.9375rem;color:var(--muted);}
 .pub .authors b{color:var(--fg);font-weight:600;}
 .pub .venue{margin:.2rem 0 0;font-size:.9375rem;font-style:italic;color:var(--muted);}
-.pub .links{margin:.6rem 0 0;display:flex;flex-wrap:wrap;gap:.45rem;}
-.pub .links a{
+.links{margin:.6rem 0 0;display:flex;flex-wrap:wrap;gap:.45rem;}
+.links a{
   font-size:.8125rem;padding:.16rem .55rem;border:1px solid var(--accent);
   border-radius:4px;line-height:1.5;
 }
-.pub .links a:hover{background:var(--accent);color:var(--bg);text-decoration:none;}
+.links a:hover{background:var(--accent);color:var(--bg);text-decoration:none;}
 .note-line{margin:0 0 2rem;font-size:.9688rem;color:var(--muted);}
+
+/* ---------------- repos ---------------- */
+
+.repo{
+  display:grid;grid-template-columns:7rem 1fr;gap:1.1rem;
+  padding:1.05rem 0;border-bottom:1px solid var(--rule);align-items:start;
+}
+.repo:last-of-type{border-bottom:0;}
+.repo h3{margin:0 0 .2rem;font-size:1.125rem;font-weight:600;line-height:1.35;}
+.repo h3 a{color:var(--fg);}
+.repo h3 a:hover{color:var(--accent);}
+.repo h3 .owner{color:var(--soft);font-weight:400;}
+.repo .desc{margin:0;font-size:.9375rem;color:var(--muted);}
+.repo .paper{margin:.2rem 0 0;font-size:.9375rem;font-style:italic;color:var(--muted);}
+.repo .facts{
+  margin:.55rem 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:.25rem 1.1rem;
+  font-size:.8125rem;color:var(--soft);font-variant-numeric:tabular-nums;
+}
+.repo .facts li{display:inline-flex;align-items:center;gap:.35rem;}
+.repo .dot{width:.55rem;height:.55rem;border-radius:50%;background:var(--accent);flex:none;}
+.repo .facts svg{width:.9rem;height:.9rem;fill:currentColor;display:block;}
 
 /* ---------------- cv ---------------- */
 
@@ -239,6 +260,7 @@ footer{
   .year-group{grid-template-columns:1fr;gap:.25rem;}
   .year-group > .year{position:static;padding-top:.5rem;font-size:1.4rem;}
   .pub{grid-template-columns:1fr;gap:.75rem;}
+  .repo{grid-template-columns:1fr;gap:.75rem;}
   .thumb{max-width:9rem;}
   .entry{grid-template-columns:1fr;gap:.15rem;}
   .years{padding-top:0;}

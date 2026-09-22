@@ -3,6 +3,7 @@
    1. theme toggle (system / light / dark)
    2. news list, loaded from assets/news.json
    3. active-section highlighting in the CV sidebar
+   4. live star counts on the repos page
    ============================================================ */
 
 /* ---------- 1. theme ---------- */
@@ -109,5 +110,32 @@
   Object.keys(byId).forEach(function (id) {
     var section = document.getElementById(id);
     if (section) observer.observe(section);
+  });
+})();
+
+/* ---------- 4. repo star counts ---------- */
+
+(function () {
+  var cards = document.querySelectorAll(".repo[data-repo]");
+  if (!cards.length) return;
+
+  /* The numbers in the HTML are the fallback. If the GitHub API answers
+     (it is rate-limited per IP for unauthenticated callers), they are
+     replaced with the current count; if it does not, nothing changes. */
+  cards.forEach(function (card) {
+    var slot = card.querySelector(".stars");
+    if (!slot) return;
+
+    fetch("https://api.github.com/repos/" + card.getAttribute("data-repo"))
+      .then(function (response) {
+        if (!response.ok) throw new Error("github returned " + response.status);
+        return response.json();
+      })
+      .then(function (repo) {
+        if (typeof repo.stargazers_count === "number") {
+          slot.textContent = repo.stargazers_count;
+        }
+      })
+      .catch(function () { /* keep the fallback */ });
   });
 })();
