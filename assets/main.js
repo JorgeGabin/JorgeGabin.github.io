@@ -10,7 +10,7 @@
 
 (function () {
   var root = document.documentElement;
-  var modes = ["system", "light", "dark"];
+  var modes = ["light", "dark", "system"];
   var query = window.matchMedia("(prefers-color-scheme: dark)");
 
   function apply(mode) {
@@ -19,9 +19,11 @@
     root.setAttribute("data-theme", dark ? "dark" : "light");
   }
 
-  var saved = "system";
-  try { saved = localStorage.getItem("theme-mode") || "system"; } catch (e) {}
-  apply(modes.indexOf(saved) > -1 ? saved : "system");
+  /* light is the default; the toggle cycles light → dark → system and the
+     choice is remembered per browser. */
+  var saved = "light";
+  try { saved = localStorage.getItem("theme-mode") || "light"; } catch (e) {}
+  apply(modes.indexOf(saved) > -1 ? saved : "light");
 
   var button = document.getElementById("theme-toggle");
   if (button) {
