@@ -209,6 +209,19 @@ footer{
 .repo .dot{width:.55rem;height:.55rem;border-radius:50%;background:var(--accent);flex:none;}
 .repo .facts svg{width:.9rem;height:.9rem;fill:currentColor;display:block;}
 
+/* ---------------- projects ---------------- */
+
+.project{
+  display:grid;grid-template-columns:7rem 1fr;gap:1.1rem;
+  padding:1.05rem 0;border-bottom:1px solid var(--rule);align-items:start;
+}
+.project:last-of-type{border-bottom:0;}
+.project h3{margin:0 0 .2rem;font-size:1.125rem;font-weight:600;line-height:1.35;}
+.project .funder{margin:0;font-size:.9375rem;color:var(--muted);}
+.project .ref{color:var(--soft);font-variant-numeric:tabular-nums;white-space:nowrap;}
+.project .role{margin:.2rem 0 0;font-size:.9375rem;font-style:italic;color:var(--muted);}
+.project .desc{margin:.45rem 0 0;font-size:.9375rem;color:var(--muted);}
+
 /* ---------------- cv ---------------- */
 
 .cv-layout{display:grid;grid-template-columns:11rem 1fr;gap:3rem;align-items:start;}
@@ -262,6 +275,7 @@ footer{
   .year-group > .year{position:static;padding-top:.5rem;font-size:1.4rem;}
   .pub{grid-template-columns:1fr;gap:.75rem;}
   .repo{grid-template-columns:1fr;gap:.75rem;}
+  .project{grid-template-columns:1fr;gap:.75rem;}
   .thumb{max-width:9rem;}
   .entry{grid-template-columns:1fr;gap:.15rem;}
   .years{padding-top:0;}
