@@ -4,6 +4,7 @@
    2. news list, loaded from assets/news.json
    3. active-section highlighting in the CV sidebar
    4. live star counts on the repos page
+   5. external links open in a new tab
    ============================================================ */
 
 /* ---------- 1. theme ---------- */
@@ -84,6 +85,8 @@
         row.appendChild(body);
         list.appendChild(row);
       });
+
+      markExternalLinks(list);
     })
     .catch(function (error) {
       /* leave whatever is already in the table as the fallback */
@@ -141,3 +144,22 @@
       .catch(function () { /* keep the fallback */ });
   });
 })();
+
+/* ---------- 5. external links ---------- */
+
+/* Anything pointing off this site (Scholar, ORCID, dblp, DOIs, GitHub…)
+   opens in a new tab. Internal pages and mailto: links are left alone.
+   Also called on the news rows, which are built after this runs. */
+function markExternalLinks(scope) {
+  var links = (scope || document).querySelectorAll('a[href^="http"]');
+
+  links.forEach(function (a) {
+    if (a.host === window.location.host) return;
+    a.setAttribute("target", "_blank");
+    if (a.rel.indexOf("noopener") === -1) {
+      a.setAttribute("rel", (a.rel ? a.rel + " " : "") + "noopener");
+    }
+  });
+}
+
+markExternalLinks(document);
