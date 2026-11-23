@@ -1,5 +1,9 @@
 [
   {
+    "date": "Nov 2026",
+    "text": "<a href=\"https://arxiv.org/abs/2611.24971\">The ROI of Small Examples: Optimizing In-Context Learning Under Token Budgets</a>, with Anxo P&eacute;rez and Javier Parapar, accepted to the EACL 2027 main conference. See you in Athens in March!"
+  },
+  {
     "date": "Jul 2026",
     "text": "Two papers presented at <a href=\"https://doi.org/10.1145/3805712.3808569\">SIGIR 2026</a>: a reproducibility study on document position and context size in RAG, and <a href=\"https://doi.org/10.1145/3805712.3808618\">Beyond Top-e</a>, on simulation-based evaluation for query suggestions."
   },
