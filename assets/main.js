@@ -5,6 +5,7 @@
    3. active-section highlighting in the CV sidebar
    4. live star counts on the repos page
    5. external links open in a new tab
+   6. content fades in as it scrolls into view
    ============================================================ */
 
 /* ---------- 1. theme ---------- */
@@ -163,3 +164,34 @@ function markExternalLinks(scope) {
 }
 
 markExternalLinks(document);
+
+/* ---------- 6. scroll reveal ---------- */
+
+/* Only content that starts below the fold is hidden and faded in, so nothing
+   on screen at load ever flickers. Skipped for reduced-motion users. */
+(function () {
+  if (!("IntersectionObserver" in window)) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  var selector = "main h2, .position, .news, .pub, .project, .repo, .entry, .courses li, .tags, .langs li, .note-line";
+  var fold = window.innerHeight;
+
+  var observer = new IntersectionObserver(function (entries) {
+    var n = 0;
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var el = entry.target;
+      el.style.transitionDelay = Math.min(n++, 5) * 70 + "ms";
+      el.classList.add("in");
+      observer.unobserve(el);
+      /* clear the stagger so hover transitions are not delayed later */
+      setTimeout(function () { el.style.transitionDelay = ""; }, 1200);
+    });
+  }, { rootMargin: "0px 0px -6% 0px" });
+
+  document.querySelectorAll(selector).forEach(function (el) {
+    if (el.getBoundingClientRect().top < fold) return;
+    el.classList.add("reveal");
+    observer.observe(el);
+  });
+})();
