@@ -15,8 +15,6 @@
   --nav:rgba(251,251,250,.85);
   --shadow:0 1px 2px rgba(28,37,34,.04),0 6px 20px rgba(28,37,34,.06);
   --accent-2:#7DBEAC;
-  --glow:rgba(20,89,76,.11);
-  --dot:rgba(28,37,34,.09);
   --w:50rem;
   --gutter:1.5rem;
 }
@@ -32,8 +30,6 @@ html[data-theme="dark"]{
   --nav:rgba(19,23,22,.85);
   --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
   --accent-2:#2F7A68;
-  --glow:rgba(99,192,168,.10);
-  --dot:rgba(230,234,232,.07);
 }
 
 *,*::before,*::after{box-sizing:border-box;}
@@ -304,17 +300,6 @@ footer{
    Decorative layer on top of the base styles above. Everything here can be
    deleted without breaking the layout. */
 
-/* dotted texture and a soft accent glow behind the top of every page */
-body{position:relative;}
-body::before{
-  content:"";position:absolute;inset:0 0 auto 0;height:38rem;z-index:-1;pointer-events:none;
-  background:
-    radial-gradient(52rem 26rem at 82% -8rem,var(--glow),transparent 70%),
-    radial-gradient(circle,var(--dot) 1px,transparent 1.4px) 0 0/22px 22px;
-  -webkit-mask-image:linear-gradient(to bottom,#000 25%,transparent);
-  mask-image:linear-gradient(to bottom,#000 25%,transparent);
-}
-
 /* nav: monogram next to the name, pill for the current page */
 .brand{display:inline-flex;align-items:center;gap:.6rem;}
 .brand::before{
@@ -339,13 +324,6 @@ body::before{
 .about > div > :nth-child(5){animation-delay:.24s;}
 .about > div > :nth-child(6){animation-delay:.3s;}
 .figure{animation:rise .9s .1s cubic-bezier(.2,.7,.2,1) both;}
-
-/* section headings: short accent stroke on the rule */
-h2{position:relative;}
-h2::after{
-  content:"";position:absolute;left:0;bottom:-1px;width:2.5rem;height:2px;
-  border-radius:2px;background:linear-gradient(90deg,var(--accent),var(--accent-2));
-}
 
 /* news as a timeline */
 .news td{border-bottom:0;padding-block:.6rem;}
@@ -414,7 +392,6 @@ h2::after{
 
 @media print{
   .nav,.toc,footer,.social{display:none;}
-  body::before{display:none;}
   .reveal{opacity:1 !important;transform:none !important;}
   body{background:#fff;color:#000;font-size:10.5pt;}
   .cv-layout{grid-template-columns:1fr;}
